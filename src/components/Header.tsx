@@ -15,14 +15,19 @@ interface HeaderProps {
 
 export function Header({ activeTab, onTabChange, onLogout }: HeaderProps) {
   return (
-    <header className="sticky top-0 z-10 bg-gray-900 text-white shadow-md">
+    <header className="sticky top-0 z-10 bg-brand-charcoal text-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-14">
-          <span className="font-bold text-lg tracking-tight">Bask Dashboard</span>
+          <img
+            src="/logo.png"
+            alt="BASK"
+            className="h-6 w-auto max-w-[88px] object-contain flex-shrink-0"
+            style={{ mixBlendMode: 'screen' }}
+          />
           {onLogout && (
             <button
               onClick={onLogout}
-              className="text-xs text-gray-400 hover:text-white transition-colors focus:outline-none"
+              className="text-xs text-brand-stone hover:text-white transition-colors focus:outline-none"
             >
               Log out
             </button>
@@ -36,8 +41,8 @@ export function Header({ activeTab, onTabChange, onLogout }: HeaderProps) {
               className={[
                 'px-4 py-2 text-sm font-medium rounded-t-lg transition-colors focus:outline-none',
                 activeTab === tab
-                  ? 'bg-white text-gray-900'
-                  : 'text-gray-400 hover:text-white hover:bg-gray-800',
+                  ? 'bg-brand-blanco text-brand-charcoal'
+                  : 'text-brand-stone hover:text-white hover:bg-white/10',
               ].join(' ')}
             >
               {TAB_LABELS[tab]}

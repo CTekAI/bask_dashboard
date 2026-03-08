@@ -14,15 +14,15 @@ import { useDailyRevenueByCategory } from '@/hooks/useDailyRevenueByCategory'
 const ALL_CATEGORIES = ['Food', 'Drink', 'Spa', 'Resort Wear', 'Others'] as const
 
 const CATEGORY_COLORS: Record<string, string> = {
-  'Food':        '#2563eb',
-  'Drink':       '#10b981',
-  'Spa':         '#7c3aed',
-  'Resort Wear': '#d97706',
-  'Others':      '#6b7280',
+  'Food':        '#F59E0B',
+  'Drink':       '#3B82F6',
+  'Spa':         '#8B5CF6',
+  'Resort Wear': '#EC4899',
+  'Others':      '#06B6D4',
 }
 
 const inputClass =
-  'text-sm border border-gray-300 rounded-lg px-3 py-1.5 bg-white text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500'
+  'text-sm border border-brand-stone/60 rounded-lg px-3 py-1.5 bg-white text-brand-charcoal/80 focus:outline-none focus:ring-2 focus:ring-brand-charcoal'
 
 function fmtRp(n: number): string {
   return `Rp ${n.toLocaleString('id-ID', { minimumFractionDigits: 0, maximumFractionDigits: 0 })}`
@@ -70,12 +70,12 @@ export function RevenueByCategoryWidget() {
     .map(([date, cats]) => ({ date: fmtDate(date), ...cats }))
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+    <div className="bg-white rounded-xl border border-brand-stone/40 shadow-sm overflow-hidden">
       {/* Header */}
-      <div className="px-5 py-4 border-b border-gray-100 flex flex-wrap items-center gap-3">
+      <div className="px-5 py-4 border-b border-brand-stone/20 flex flex-wrap items-center gap-3">
         <div className="flex-1 min-w-0">
-          <h2 className="text-sm font-semibold text-gray-900">Revenue by Category</h2>
-          <p className="text-xs text-gray-400 mt-0.5">Daily POS revenue per category</p>
+          <h2 className="text-sm font-semibold text-brand-charcoal">Revenue by Category</h2>
+          <p className="text-xs text-brand-stone mt-0.5">Daily POS revenue per category</p>
         </div>
 
         {/* Category toggles */}
@@ -90,7 +90,7 @@ export function RevenueByCategoryWidget() {
                   'px-3 py-1.5 rounded-full text-xs font-medium transition-colors focus:outline-none',
                   active
                     ? 'text-white'
-                    : 'bg-white text-gray-600 border border-gray-300 hover:border-gray-400',
+                    : 'bg-white text-brand-charcoal/70 border border-brand-stone/60 hover:border-brand-stone',
                 ].join(' ')}
                 style={active ? { backgroundColor: CATEGORY_COLORS[cat] } : undefined}
               >
@@ -102,14 +102,14 @@ export function RevenueByCategoryWidget() {
 
         {/* Date range */}
         <div className="flex flex-wrap items-center gap-2">
-          <label className="text-xs text-gray-500">From</label>
+          <label className="text-xs text-brand-stone">From</label>
           <input
             type="date"
             value={from}
             onChange={(e) => setFrom(e.target.value)}
             className={inputClass}
           />
-          <label className="text-xs text-gray-500">To</label>
+          <label className="text-xs text-brand-stone">To</label>
           <input
             type="date"
             value={to}
@@ -119,7 +119,7 @@ export function RevenueByCategoryWidget() {
           {(from || to) && (
             <button
               onClick={() => { setFrom(''); setTo('') }}
-              className="text-sm text-blue-600 hover:text-blue-800 px-2 py-1.5 focus:outline-none"
+              className="text-sm text-brand-palm hover:text-brand-charcoal px-2 py-1.5 focus:outline-none"
             >
               Clear
             </button>
@@ -131,38 +131,38 @@ export function RevenueByCategoryWidget() {
       <div className="p-5">
         {loading ? (
           <div className="flex justify-center py-12">
-            <div className="w-7 h-7 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
+            <div className="w-7 h-7 border-4 border-brand-stone/40 border-t-brand-charcoal rounded-full animate-spin" />
           </div>
         ) : error ? (
           <div className="rounded-lg bg-red-50 border border-red-200 p-4 text-sm text-red-700">
             Failed to load data: {error}
           </div>
         ) : chartData.length === 0 ? (
-          <div className="flex items-center justify-center h-40 text-sm text-gray-400">
+          <div className="flex items-center justify-center h-40 text-sm text-brand-stone">
             No data for this period
           </div>
         ) : (
           <ResponsiveContainer width="100%" height={260}>
             <LineChart data={chartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke="#e8e2db" />
               <XAxis
                 dataKey="date"
-                tick={{ fontSize: 10, fill: '#9ca3af' }}
+                tick={{ fontSize: 10, fill: '#D1C7BB' }}
                 tickLine={false}
                 axisLine={false}
                 interval="preserveStartEnd"
               />
               <YAxis
                 tickFormatter={fmtRpShort}
-                tick={{ fontSize: 10, fill: '#9ca3af' }}
+                tick={{ fontSize: 10, fill: '#D1C7BB' }}
                 tickLine={false}
                 axisLine={false}
                 width={52}
               />
               <Tooltip
                 formatter={(value: number | undefined) => fmtRp(value ?? 0)}
-                labelStyle={{ color: '#111827', fontWeight: 600, fontSize: 12 }}
-                contentStyle={{ border: '1px solid #e5e7eb', borderRadius: '8px', fontSize: '12px' }}
+                labelStyle={{ color: '#212121', fontWeight: 600, fontSize: 12 }}
+                contentStyle={{ border: '1px solid #D1C7BB', borderRadius: '8px', fontSize: '12px' }}
               />
               <Legend iconSize={10} wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
               {selectedCategories.map((cat) => (
@@ -171,7 +171,7 @@ export function RevenueByCategoryWidget() {
                   type="monotone"
                   dataKey={cat}
                   name={cat}
-                  stroke={CATEGORY_COLORS[cat] ?? '#9ca3af'}
+                  stroke={CATEGORY_COLORS[cat] ?? '#D1C7BB'}
                   strokeWidth={2}
                   dot={false}
                   activeDot={{ r: 4 }}

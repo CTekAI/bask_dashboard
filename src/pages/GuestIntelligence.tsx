@@ -30,8 +30,8 @@ export function GuestIntelligence() {
   return (
     <div className="space-y-5">
       <div>
-        <h1 className="text-lg font-bold text-gray-900">Guest Intelligence</h1>
-        <p className="text-sm text-gray-500">Top spenders by total POS spend — click a row to see category breakdown</p>
+        <h1 className="text-lg font-bold text-brand-charcoal">Guest Intelligence</h1>
+        <p className="text-sm text-brand-stone">Top spenders by total POS spend — click a row to see category breakdown</p>
       </div>
 
       <TopSpendersTable
@@ -60,19 +60,19 @@ export function GuestIntelligence() {
           {/* Panel */}
           <div className="fixed right-0 inset-y-0 w-full max-w-sm bg-white z-50 shadow-xl flex flex-col overflow-hidden">
             {/* Panel header */}
-            <div className="px-5 py-4 border-b border-gray-100 flex items-start justify-between">
+            <div className="px-5 py-4 border-b border-brand-stone/20 flex items-start justify-between">
               <div>
-                <p className="text-xs font-medium text-gray-500 uppercase tracking-wide">Guest Breakdown</p>
-                <h2 className="text-base font-bold text-gray-900 mt-0.5">{selectedGuest}</h2>
+                <p className="text-xs font-medium text-brand-stone uppercase tracking-wide">Guest Breakdown</p>
+                <h2 className="text-base font-bold text-brand-charcoal mt-0.5">{selectedGuest}</h2>
                 {selectedRow && (
-                  <p className="text-sm text-gray-500 mt-0.5">
+                  <p className="text-sm text-brand-stone mt-0.5">
                     {fmtCurrency(Number(selectedRow.total_spend))} total · {selectedRow.txn_count} transactions
                   </p>
                 )}
               </div>
               <button
                 onClick={closeDrawer}
-                className="text-gray-400 hover:text-gray-600 p-1 -mr-1 focus:outline-none"
+                className="text-brand-stone hover:text-brand-charcoal/70 p-1 -mr-1 focus:outline-none"
                 aria-label="Close"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -83,7 +83,7 @@ export function GuestIntelligence() {
 
             {/* Category breakdown */}
             <div className="flex-1 overflow-y-auto px-5 py-4">
-              <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4">Spend by Category</p>
+              <p className="text-xs font-medium text-brand-stone uppercase tracking-wide mb-4">Spend by Category</p>
               <GuestCategoryBreakdown
                 data={categorySpend.data}
                 loading={categorySpend.loading}

@@ -22,17 +22,22 @@ export function Login({ onLogin }: Props) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
+    <div className="min-h-screen bg-brand-blanco flex items-center justify-center px-4">
       <div className="w-full max-w-sm">
-        <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-8">
+        <div className="bg-white rounded-2xl border border-brand-stone/40 shadow-sm p-8">
           <div className="mb-8 text-center">
-            <h1 className="text-2xl font-bold text-gray-900 tracking-tight">Bask</h1>
-            <p className="text-sm text-gray-400 mt-1">Management Dashboard</p>
+            <img
+              src="/logo.png"
+              alt="BASK"
+              className="h-8 w-auto mx-auto mb-4"
+              style={{ filter: 'brightness(0)' }}
+            />
+            <p className="text-sm text-brand-stone mt-1">Management Dashboard</p>
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-4">
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1.5">
+              <label className="block text-xs font-medium text-brand-charcoal mb-1.5">
                 Username
               </label>
               <input
@@ -40,13 +45,13 @@ export function Login({ onLogin }: Props) {
                 autoComplete="username"
                 value={username}
                 onChange={(e) => { setUsername(e.target.value); setError(false) }}
-                className="w-full px-3 py-2.5 rounded-lg border border-gray-300 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                className="w-full px-3 py-2.5 rounded-lg border border-brand-stone/60 text-sm text-brand-charcoal placeholder-brand-stone focus:outline-none focus:ring-2 focus:ring-brand-charcoal focus:border-transparent"
                 placeholder="Username"
               />
             </div>
 
             <div>
-              <label className="block text-xs font-medium text-gray-600 mb-1.5">
+              <label className="block text-xs font-medium text-brand-charcoal mb-1.5">
                 Password
               </label>
               <input
@@ -54,7 +59,7 @@ export function Login({ onLogin }: Props) {
                 autoComplete="current-password"
                 value={password}
                 onChange={(e) => { setPassword(e.target.value); setError(false) }}
-                className="w-full px-3 py-2.5 rounded-lg border border-gray-300 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-800 focus:border-transparent"
+                className="w-full px-3 py-2.5 rounded-lg border border-brand-stone/60 text-sm text-brand-charcoal placeholder-brand-stone focus:outline-none focus:ring-2 focus:ring-brand-charcoal focus:border-transparent"
                 placeholder="Password"
               />
             </div>
@@ -67,7 +72,7 @@ export function Login({ onLogin }: Props) {
 
             <button
               type="submit"
-              className="w-full bg-gray-900 text-white text-sm font-medium py-2.5 rounded-lg hover:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-gray-800 focus:ring-offset-2 mt-2"
+              className="w-full bg-brand-charcoal text-white text-sm font-medium py-2.5 rounded-lg hover:bg-brand-palm transition-colors focus:outline-none focus:ring-2 focus:ring-brand-charcoal focus:ring-offset-2 mt-2"
             >
               Sign in
             </button>

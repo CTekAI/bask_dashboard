@@ -55,36 +55,36 @@ export function RevenueStreamsChart({ posData, staysData }: RevenueStreamsChartP
     }))
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
-      <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4">
+    <div className="bg-white rounded-xl border border-brand-stone/40 shadow-sm p-5">
+      <p className="text-xs font-medium text-brand-stone uppercase tracking-wide mb-4">
         Revenue Streams
       </p>
       <ResponsiveContainer width="100%" height={260}>
         <LineChart data={chartData} margin={{ top: 4, right: 8, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#e8e2db" />
           <XAxis
             dataKey="date"
-            tick={{ fontSize: 10, fill: '#9ca3af' }}
+            tick={{ fontSize: 10, fill: '#D1C7BB' }}
             tickLine={false}
             axisLine={false}
             interval="preserveStartEnd"
           />
           <YAxis
             tickFormatter={fmtRpShort}
-            tick={{ fontSize: 10, fill: '#9ca3af' }}
+            tick={{ fontSize: 10, fill: '#D1C7BB' }}
             tickLine={false}
             axisLine={false}
             width={52}
           />
           <Tooltip
             formatter={(value: number | undefined) => fmtRp(value ?? 0)}
-            labelStyle={{ color: '#111827', fontWeight: 600, fontSize: 12 }}
-            contentStyle={{ border: '1px solid #e5e7eb', borderRadius: '8px', fontSize: '12px' }}
+            labelStyle={{ color: '#212121', fontWeight: 600, fontSize: 12 }}
+            contentStyle={{ border: '1px solid #D1C7BB', borderRadius: '8px', fontSize: '12px' }}
           />
           <Legend iconSize={10} wrapperStyle={{ fontSize: '11px', paddingTop: '8px' }} />
-          <Line type="monotone" dataKey="room" name="Room" stroke="#10b981" strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
-          <Line type="monotone" dataKey="pos" name="POS" stroke="#2563eb" strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
-          <Line type="monotone" dataKey="combined" name="Combined" stroke="#7c3aed" strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
+          <Line type="monotone" dataKey="room" name="Room" stroke="#3B82F6" strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
+          <Line type="monotone" dataKey="pos" name="POS" stroke="#10B981" strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
+          <Line type="monotone" dataKey="combined" name="Combined" stroke="#F59E0B" strokeWidth={2} dot={false} activeDot={{ r: 4 }} />
         </LineChart>
       </ResponsiveContainer>
     </div>

@@ -5,7 +5,7 @@ interface CategoryDonutChartProps {
   products: Product[]
 }
 
-const COLORS = ['#2563eb', '#16a34a', '#d97706', '#dc2626', '#7c3aed', '#db2777', '#0891b2', '#65a30d']
+const COLORS = ['#3B82F6', '#10B981', '#F59E0B', '#8B5CF6', '#EC4899', '#06B6D4', '#F97316', '#EF4444']
 
 export function CategoryDonutChart({ products }: CategoryDonutChartProps) {
   // Group by category and sum total_revenue
@@ -19,8 +19,8 @@ export function CategoryDonutChart({ products }: CategoryDonutChartProps) {
     .sort((a, b) => b.value - a.value)
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
-      <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4">
+    <div className="bg-white rounded-xl border border-brand-stone/40 shadow-sm p-5">
+      <p className="text-xs font-medium text-brand-stone uppercase tracking-wide mb-4">
         Revenue by Category
       </p>
       <ResponsiveContainer width="100%" height={220}>
@@ -46,7 +46,7 @@ export function CategoryDonutChart({ products }: CategoryDonutChartProps) {
               'Revenue',
             ]}
             contentStyle={{
-              border: '1px solid #e5e7eb',
+              border: '1px solid #D1C7BB',
               borderRadius: '8px',
               fontSize: '12px',
             }}
@@ -60,7 +60,7 @@ export function CategoryDonutChart({ products }: CategoryDonutChartProps) {
               className="w-2 h-2 rounded-full flex-shrink-0"
               style={{ backgroundColor: COLORS[i % COLORS.length] }}
             />
-            <span className="text-xs text-gray-600 truncate">{item.name}</span>
+            <span className="text-xs text-brand-charcoal/70 truncate">{item.name}</span>
           </div>
         ))}
       </div>

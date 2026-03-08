@@ -27,15 +27,15 @@ export function MenuPerformance() {
   return (
     <div className="space-y-6">
       <div>
-        <h1 className="text-lg font-bold text-gray-900">Menu Performance</h1>
-        <p className="text-sm text-gray-500">Top and bottom 20 items — last 30 days</p>
+        <h1 className="text-lg font-bold text-brand-charcoal">Menu Performance</h1>
+        <p className="text-sm text-brand-stone">Top and bottom 20 items — last 30 days</p>
       </div>
 
       <TopItemsWidget data={top.data} loading={top.loading} error={top.error} />
 
       {isLoading ? (
         <div className="flex justify-center py-12">
-          <div className="w-7 h-7 border-4 border-blue-200 border-t-blue-600 rounded-full animate-spin" />
+          <div className="w-7 h-7 border-4 border-brand-stone/40 border-t-brand-charcoal rounded-full animate-spin" />
         </div>
       ) : (
         <>

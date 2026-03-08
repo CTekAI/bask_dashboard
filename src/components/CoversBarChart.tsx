@@ -27,37 +27,37 @@ export function CoversBarChart({ data }: CoversBarChartProps) {
   }))
 
   return (
-    <div className="bg-white rounded-xl border border-gray-200 shadow-sm p-5">
-      <p className="text-xs font-medium text-gray-500 uppercase tracking-wide mb-4">
+    <div className="bg-white rounded-xl border border-brand-stone/40 shadow-sm p-5">
+      <p className="text-xs font-medium text-brand-stone uppercase tracking-wide mb-4">
         Covers — Last 30 Days
       </p>
       <ResponsiveContainer width="100%" height={180}>
         <BarChart data={chartData} margin={{ top: 4, right: 4, left: 0, bottom: 0 }}>
-          <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" vertical={false} />
+          <CartesianGrid strokeDasharray="3 3" stroke="#e8e2db" vertical={false} />
           <XAxis
             dataKey="date"
-            tick={{ fontSize: 10, fill: '#9ca3af' }}
+            tick={{ fontSize: 10, fill: '#D1C7BB' }}
             tickLine={false}
             axisLine={false}
             interval="preserveStartEnd"
           />
           <YAxis
-            tick={{ fontSize: 10, fill: '#9ca3af' }}
+            tick={{ fontSize: 10, fill: '#D1C7BB' }}
             tickLine={false}
             axisLine={false}
             width={30}
           />
           <Tooltip
             formatter={(value: number | undefined) => [value ?? '—', 'Covers']}
-            labelStyle={{ color: '#111827', fontWeight: 600, fontSize: 12 }}
+            labelStyle={{ color: '#212121', fontWeight: 600, fontSize: 12 }}
             contentStyle={{
-              border: '1px solid #e5e7eb',
+              border: '1px solid #D1C7BB',
               borderRadius: '8px',
               fontSize: '12px',
             }}
-            cursor={{ fill: '#f3f4f6' }}
+            cursor={{ fill: '#FAF7F5' }}
           />
-          <Bar dataKey="covers" fill="#2563eb" radius={[4, 4, 0, 0]} maxBarSize={32} />
+          <Bar dataKey="covers" fill="#3B82F6" radius={[4, 4, 0, 0]} maxBarSize={32} />
         </BarChart>
       </ResponsiveContainer>
     </div>
