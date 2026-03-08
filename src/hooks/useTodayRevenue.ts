@@ -17,7 +17,7 @@ export async function fetchTodayRevenueBreakdown(): Promise<TodayRevenueBreakdow
       .order('arrival_date', { ascending: false })
       .limit(1),
     supabase
-      .from('pos_sales')
+      .from('v_daily_revenue')
       .select('sale_date')
       .order('sale_date', { ascending: false })
       .limit(1),
@@ -37,13 +37,13 @@ export async function fetchTodayRevenueBreakdown(): Promise<TodayRevenueBreakdow
       .select('room_revenue')
       .eq('arrival_date', todayDate),
     supabase
-      .from('pos_sales')
-      .select('revenue')
+      .from('v_daily_revenue')
+      .select('total_revenue')
       .eq('sale_date', todayDate),
   ])
 
-  const roomRevenue = (roomRows ?? []).reduce((s, r) => s + Number(r.room_revenue ?? 0), 0)
-  const posRevenue  = (posRows  ?? []).reduce((s, r) => s + Number(r.revenue      ?? 0), 0)
+  const roomRevenue = (roomRows ?? []).reduce((s, r) => s + Number(r.room_revenue   ?? 0), 0)
+  const posRevenue  = (posRows  ?? []).reduce((s, r) => s + Number(r.total_revenue  ?? 0), 0)
 
   return {
     date: todayDate,
