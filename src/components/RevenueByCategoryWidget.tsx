@@ -160,7 +160,7 @@ export function RevenueByCategoryWidget() {
                 width={52}
               />
               <Tooltip
-                formatter={(value: number) => fmtRp(value)}
+                formatter={(value: number | undefined) => fmtRp(value ?? 0)}
                 labelStyle={{ color: '#111827', fontWeight: 600, fontSize: 12 }}
                 contentStyle={{ border: '1px solid #e5e7eb', borderRadius: '8px', fontSize: '12px' }}
               />

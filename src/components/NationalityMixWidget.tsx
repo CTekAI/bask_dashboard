@@ -132,7 +132,7 @@ export function NationalityMixWidget() {
                 axisLine={false}
               />
               <Tooltip
-                formatter={(value: number) => [value.toLocaleString(), 'Guests']}
+                formatter={(value: number | undefined) => [(value ?? 0).toLocaleString(), 'Guests']}
                 labelStyle={{ color: '#111827', fontWeight: 600, fontSize: 12 }}
                 contentStyle={{ border: '1px solid #e5e7eb', borderRadius: '8px', fontSize: '12px' }}
                 cursor={{ fill: '#f3f4f6' }}
